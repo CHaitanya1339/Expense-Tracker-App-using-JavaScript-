@@ -12,22 +12,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Concert+One&family=Grandstander:ital,wght@0,300;0,500;0,800;1,300&display=swap" rel="stylesheet">
     <link rel='stylesheet' href="bootstrap.min.css">
 </head>
-<body style="background-color: #f3e853">
+<body style="background-color: #95BDFF">
    
     <div class="container1" >
             <h1 id="header" data-aos="fade-down" data-aos-easing="linear"  data-aos-duration="700">Simple Expense Tracker</h1>
             <h4 id="closing">Closing Balance</h4>
-            <h3 id="cbalance">0.00 $</h3>
+            <h3 id="cbalance">0.00 ₹</h3>
         <div class="row" id="box">
             <div class="col-md-5 income" data-aos="fade-right"  data-aos-duration="1500">
                 <span><i class="far fa-money-bill-alt" style='font-size:40px;color:black'></i></span>
                 <h3>Income</h3>
-                <h3 id="income">0.00 $</h3>
+                <h3 id="income">0.00 ₹</h3>
             </div>
             <div class="col-md-5 expense" data-aos="fade-left" data-aos-duration="1500">
                 <span><i class='fas fa-hand-holding-usd' style='font-size:42px;color:black'></i></span>
                 <h3>Expense</h3>
-                <h3 id="expense">0.00 $</h3>
+                <h3 id="expense">0.00 ₹</h3>
             </div> 
         </div>
         <div class="col-md-8 mx-auto form">
@@ -52,5 +52,79 @@
     </div>
 </body>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src='script.js'></script>
+    <script>
+        AOS.init();
+
+
+
+
+function expense(){
+    var cbalance = document.getElementById("cbalance");
+    var income = document.getElementById("income");
+    var expense = document.getElementById("expense");
+    var input = document.getElementById("input").value;
+    var description = document.getElementById("descrip").value;
+
+    var transaction_record = document.getElementById("transaction_record")
+    var record = document.createElement("div");
+    record.setAttribute("id","history");
+    var history = document.createTextNode(description  + "  ---------  " + input + "   $   ");
+    record.appendChild(history);
+    transaction_record.appendChild(record);
+
+    record.addEventListener('click',function(){this.remove(history);})
+
+
+    if(input == "" )
+    {
+        alert("Please ! Enter Your Salaray or Expense.");
+        record.remove(record);
+    }
+
+
+    else if(input > 0) {
+          total_amount = parseInt(cbalance.innerHTML); 
+          closing_balance = total_amount + parseInt(input);
+        cbalance.innerHTML = closing_balance + " .00 $" ;
+        income.innerHTML = closing_balance + " .00 $";
+        document.getElementById("input").value;
+        document.createElement("h2");
+
+    }
+
+
+
+    else if(input<0)
+    {
+    
+     cbalance = parseInt(cbalance.innerHTML);
+      exp_balance = parseInt(expense.innerHTML)
+     total_amount = cbalance + parseInt(input);
+     document.getElementById("expense").innerHTML = (exp_balance - input)+ " .00 $";
+     document.getElementById("cbalance").innerHTML = total_amount + " .00 $"
+    }
+
+    document.getElementById("input").value = '';
+    document.getElementById("descrip").value = '';
+
+    window.scroll({
+        top: 1000,
+        left: 0,
+        behavior: 'smooth'
+      });
+}
+function initialize() {
+        let income = null;
+
+        while (income === null || isNaN(income)) {
+          income = parseFloat(prompt("Enter your income (required)"));
+        }
+
+        balance = income;
+        balanceSpan.textContent = balance.toFixed(2);
+      }
+
+      initialize();
+
+    </script>
 </html>

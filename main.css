@@ -11,9 +11,9 @@ body{
     width: 80%;
     margin: auto;
     border-radius: 79px;
-    background: #f3e853;
-    box-shadow:  50px 50px 92px #948e33, 
-                 -50px -50px 92px #ffff73;
+    background: #95BDFF;
+    box-shadow:  50px 50px 92px #B4E4FF, 
+                 -50px -50px 92px #DFFFD8;
     margin-top: 2rem;
 }
 #header{
@@ -151,9 +151,9 @@ input[type="number"]:focus{
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 79px;
-    background: #8b841d;
-    box-shadow:  50px 50px 92px #948e33, 
-                 -50px -50px 92px #fcfc0b;
+    background: #B4E4FF;
+    box-shadow:  50px 50px 92px #B4E4FF, 
+                 -50px -50px 92px #95BDFF;
     font-size: 25px;
     padding: 5px;
 }
